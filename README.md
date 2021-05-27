@@ -1,6 +1,6 @@
 # k3s on Gitpod
 
-[![Gitpod ready-to-code](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/falcosecurity/libs)
+[![Gitpod ready-to-code](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/fntlnz/gitpod-k3s)
 
 Just click on the button above and you will be in a Gitpod workspace with k3s running.
 
