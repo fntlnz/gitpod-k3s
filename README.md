@@ -4,7 +4,7 @@
 
 Just click on the button above and you will be in a Gitpod workspace with k3s running.
 
-You can copy the `.gitpod.yaml` and the `.gitpod` folder to your own project to also have the k3s environment ready in there.
+You can copy the `.gitpod.yml` and the `.gitpod` folder to your own project to also have the k3s environment ready in there.
 
 Here's a diagram of the interactions that also shows how the various components interact with each other.
 

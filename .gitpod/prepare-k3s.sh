@@ -18,6 +18,7 @@ function waitssh() {
   done
   ./ssh.sh "whoami" &>/dev/null
   if [ $? -ne 0 ]; then
+    sleep 1
     waitssh
   fi
 }
