@@ -42,5 +42,8 @@ sudo virt-customize -a hirsute-server-cloudimg-amd64.img --run-command 'apt remo
 sudo virt-customize -a hirsute-server-cloudimg-amd64.img --run-command "sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config"
 sudo virt-customize -a hirsute-server-cloudimg-amd64.img --run-command "sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config"
 
+# mark as ready
+touch rootfs-ready.lock
+
 echo "k3s development environment is ready"
 

@@ -1,5 +1,5 @@
 image: gitpod/workspace-full
-checkoutLocation: falco-libs
+checkoutLocation: gitpod-k3s
 tasks:
   - name: kernel dev environment
     init: |
