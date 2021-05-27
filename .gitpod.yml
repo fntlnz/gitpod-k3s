@@ -1,6 +1,9 @@
 image: gitpod/workspace-full
 checkoutLocation: gitpod-k3s
 tasks:
+  - name: prepare k3s
+    command: |
+      .gitpod/prepare-k3s.sh
   - name: kernel dev environment
     init: |
       sudo apt update -y
@@ -10,6 +13,3 @@ tasks:
       .gitpod/prepare-rootfs.sh
     command: |
       .gitpod/qemu.sh
-  - name: prepare k3s
-    command: |
-      .gitpod/prepare-k3s.sh
