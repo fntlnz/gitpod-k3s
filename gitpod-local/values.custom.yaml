@@ -1,0 +1,7 @@
+rabbitmq:
+  auth:
+    username: "thisistestusername"
+    password: "thisistestpass"
+minio:
+  accessKey: thisisrandomaccesskey
+  secretKey: thisisrandomsecretkey
