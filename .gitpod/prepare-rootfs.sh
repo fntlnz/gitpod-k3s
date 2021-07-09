@@ -18,10 +18,6 @@ tar -xvf rootfs.tar.gz
 
 qemu-img resize bionic-server-cloudimg-amd64.img +20G
 
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --run-command 'resize2fs /dev/sda'
-
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --root-password password:root
-
 netconf="
 network:
   version: 2
@@ -32,15 +28,13 @@ network:
 "
 
 # networking setup
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --run-command "echo '${netconf}' > /etc/netplan/01-net.yaml"
-
-# copy kernel modules
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --copy-in /lib/modules/$(uname -r):/lib/modules
-
-# ssh
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --run-command 'apt remove openssh-server -y && apt install openssh-server -y'
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --run-command "sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config"
-sudo virt-customize -a bionic-server-cloudimg-amd64.img --run-command "sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config"
+sudo virt-customize -a bionic-server-cloudimg-amd64.img \
+--run-command 'resize2fs /dev/sda' \
+--root-password password:root \
+--run-command "echo '${netconf}' > /etc/netplan/01-net.yaml" \
+--copy-in /lib/modules/5.4.0-1044-gke:/lib/modules \
+--run-command "sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config" \
+--run-command "sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config"
 
 # mark as ready
 touch rootfs-ready.lock
