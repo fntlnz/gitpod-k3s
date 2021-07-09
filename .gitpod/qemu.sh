@@ -2,8 +2,8 @@
 
 set -xeuo pipefail
 
-data_dir=/gitpod
-outdir="${data_dir}/.gitpod/_output"
+script_dirname="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+outdir="${script_dirname}/_output"
 
 sudo qemu-system-x86_64 -kernel "/boot/vmlinuz" \
 -boot c -m 20049M -hda "${outdir}/rootfs/bionic-server-cloudimg-amd64.img" \

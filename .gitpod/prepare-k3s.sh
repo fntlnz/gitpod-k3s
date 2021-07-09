@@ -1,15 +1,16 @@
 #!/bin/bash
 
-data_dir=/gitpod/.gitpod
+script_dirname="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-rootfslock="${data_dir}/_output/rootfs/rootfs-ready.lock"
-k3sreadylock="${data_dir}/_output/rootfs/k3s-ready.lock"
+rootfslock="${script_dirname}/_output/rootfs/rootfs-ready.lock"
+k3sreadylock="${script_dirname}/_output/rootfs/k3s-ready.lock"
+
 
 if test -f "${k3sreadylock}"; then
     exit 0
 fi
 
-cd $data_dir
+cd $script_dirname
 
 function waitssh() {
   while ! nc -z 127.0.0.1 2222; do   
