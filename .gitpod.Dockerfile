@@ -5,4 +5,3 @@ USER root
 WORKDIR /gitpod
 COPY .gitpod .gitpod
 RUN .gitpod/install.sh
-RUN .gitpod/prepare-rootfs.sh 
