@@ -5,3 +5,12 @@ rabbitmq:
 minio:
   accessKey: thisisrandomaccesskey
   secretKey: thisisrandomsecretkey
+
+
+components:
+  wsDaemon:
+    containerRuntime:
+      nodeRoots:
+      - /run/k3s/containerd/io.containerd.runtime.v2.task
+      containerd:
+        socket: /run/k3s/containerd/containerd.sock
