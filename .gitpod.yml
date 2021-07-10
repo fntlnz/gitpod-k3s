@@ -2,10 +2,10 @@ image:
   file: .gitpod.Dockerfile
 checkoutLocation: gitpod-k3s
 tasks:
-  - name: prepare rootfs and k3s
-    init: .gitpod/prepare-rootfs.sh
+  - name: prepare k3s
     command: |
       .gitpod/prepare-k3s.sh
   - name: start cluster
+    init: .gitpod/prepare-rootfs.sh
     command: |
       .gitpod/qemu.sh
